@@ -12,7 +12,7 @@ public:
 	BaseNPC() = delete;
 
 	BaseNPC(World* a_pWorld);
-	~BaseNPC();
+	virtual ~BaseNPC();
 
 	void update(float a_fdeltaTime);
 	void render();
@@ -35,7 +35,7 @@ protected:
 	void collectWater(float a_fdeltaTime);
 	void collectFood(float a_fdeltaTime);
 	void rest(float a_fdeltaTime);
-	
+
 	void chopTree(float a_fdeltaTime);
 	void buildHouse(float a_fdeltaTime);
 
@@ -43,7 +43,7 @@ protected:
 	World*			m_pWorld;
 private:
 	bool travelTo(glm::vec3 a_vLoc, float a_fDeltaTime);
-	
+
 	void checkAlive();
 	void calculateStatusChange();
 	glm::vec3		m_vPosition;

@@ -10,6 +10,7 @@
 
 #include "World.h"
 #include "BaseNPC.h"
+#include "../UtilityNPC.h"
 
 using glm::vec3;
 using glm::vec4;
@@ -34,9 +35,9 @@ bool UtilitySystemApplication::startup() {
 	// create a camera
 	m_camera = new Camera(glm::pi<float>() * 0.25f, 16 / 9.f, 0.1f, 1000.f);
 	m_camera->setLookAtFrom(vec3(10, 10, 10), vec3(0));
-	
+
 	m_pWorld = new World();
-	m_pNPC = new BaseNPC(m_pWorld);
+	m_pNPC = new UtilitySystem::UtilityNPC(m_pWorld);
 
 	return true;
 }
@@ -56,7 +57,7 @@ void UtilitySystemApplication::shutdown() {
 }
 
 bool UtilitySystemApplication::update(float deltaTime) {
-	
+
 	// close the application if the window closes
 	if (glfwWindowShouldClose(m_window) ||
 		glfwGetKey(m_window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
